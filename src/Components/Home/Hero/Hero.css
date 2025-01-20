@@ -1,0 +1,10 @@
+.Herobanner{
+    background: linear-gradient(
+        rgba(113, 112, 112, 0.5), /* Black overlay with 50% opacity */
+        rgba(6, 6, 6, 0.5)
+    ),
+    url("https://autodealreactjs.vercel.app/assets/images/slider/slide2.jpg");    height: 100vh;
+    background-position: 100%; 
+    background-size: cover;
+    
+}
