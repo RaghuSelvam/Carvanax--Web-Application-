@@ -1,117 +1,136 @@
-import { Box, Card, CardContent, Typography, Button, Grid } from "@mui/material";
-import React from "react";
-import SearchIcon from "@mui/icons-material/Search";
-import LocalOfferIcon from "@mui/icons-material/LocalOffer";
-import CreditCardIcon from "@mui/icons-material/CreditCard";
-import BuildIcon from "@mui/icons-material/Build";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward"; // Right arrow icon
+import { Box, Paper, Typography, Button, Grid } from '@mui/material'
+import React from 'react'
+import SearchIcon from '@mui/icons-material/Search'
+import LocalOfferIcon from '@mui/icons-material/LocalOffer'
+import CreditCardIcon from '@mui/icons-material/CreditCard'
+import BuildIcon from '@mui/icons-material/Build'
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward' // Right arrow icon
 
 export const Ad_2 = () => {
   const Ad_2Data = [
     {
-      Header: "Browse Inventory",
-      SubHeader: "Find the ideal car for you and browse our affordable inventory.",
-      MainHeader: "Search Inventory",
-      icon: <SearchIcon sx={{ fontSize: 40, color: "#2E7D32" }} />,
+      Header: 'Browse Inventory',
+      SubHeader:
+        'Find the ideal car for you and browse our affordable inventory.',
+      MainHeader: 'Search Inventory',
+      icon: <SearchIcon sx={{ fontSize: 40, color: '#2E7D32' }} />
     },
     {
-      Header: "Get An Offer",
+      Header: 'Get An Offer',
       SubHeader: "What's your car worth? Get the best value for your vehicle.",
-      MainHeader: "Get Trade-in Value",
-      icon: <LocalOfferIcon sx={{ fontSize: 40, color: "#2E7D32" }} />,
+      MainHeader: 'Get Trade-in Value',
+      icon: <LocalOfferIcon sx={{ fontSize: 40, color: '#2E7D32' }} />
     },
     {
-      Header: "Apply For Financing",
-      SubHeader: "Fill out our credit approval form for your next used vehicle loan.",
-      MainHeader: "Apply Now",
-      icon: <CreditCardIcon sx={{ fontSize: 40, color: "#2E7D32" }} />,
+      Header: 'Apply For Financing',
+      SubHeader:
+        'Fill out our credit approval form for your next used vehicle loan.',
+      MainHeader: 'Apply Now',
+      icon: <CreditCardIcon sx={{ fontSize: 40, color: '#2E7D32' }} />
     },
     {
-      Header: "Expert Service",
-      SubHeader: "Expert technicians will keep your vehicle in top running condition.",
-      MainHeader: "Schedule Service",
-      icon: <BuildIcon sx={{ fontSize: 40, color: "#2E7D32" }} />,
-    },
-  ];
+      Header: 'Expert Service',
+      SubHeader:
+        'Expert technicians will keep your vehicle in top running condition.',
+      MainHeader: 'Schedule Service',
+      icon: <BuildIcon sx={{ fontSize: 40, color: '#2E7D32' }} />
+    }
+  ]
 
   return (
-    <Box p={3}>
+    <Box
+      mt={7}
+      sx={{
+        p: '0 188px' // This sets padding of 0px for top and bottom, 23px for left and right
+      }}
+    >
       <Grid container spacing={3}>
         {Ad_2Data.map((item, index) => (
           <Grid item xs={12} sm={6} md={3} key={index}>
-            <Card
+            <Paper
               sx={{
-                height: "100%",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "space-between",
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'space-between',
                 p: 3,
-                borderRadius: 3,
-                textAlign: "center",
-                boxShadow: 3,
-                transition: "transform 0.3s, box-shadow 0.3s",
-                "&:hover": {
-                  transform: "scale(1.05)",
-                  boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
-                },
+                borderRadius: 5,
+                textAlign: 'center',
+                boxShadow: 12, // MUI Paper 24 elevation
+                transition: 'transform 0.3s, box-shadow 0.3s',
+                '&:hover': {
+                  transform: 'scale(1.05)',
+                  boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)'
+                }
               }}
             >
               <Box
                 sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  transition: "transform 0.3s",
-                  "&:hover": {
-                    transform: "scale(1.1)", // Slightly scale up the icon when hovered
-                  },
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  transition: 'transform 0.3s',
+                  '&:hover': {
+                    transform: 'scale(1.1)' // Slightly scale up the icon when hovered
+                  }
                 }}
               >
                 {item.icon}
               </Box>
 
-              <CardContent>
-                <Typography variant="h6" gutterBottom>
-                  {item.Header}
-                </Typography>
-                <Typography variant="body2" color="textSecondary" gutterBottom>
-                  {item.SubHeader}
-                </Typography>
-              </CardContent>
+              <Typography
+                variant='h6'
+                gutterBottom
+                sx={{ fontSize: '0.875rem' }}
+              >
+                {item.Header}
+              </Typography>
+              <Typography
+                variant='body2'
+                color='textSecondary'
+                gutterBottom
+                sx={{ fontSize: '0.75rem' }}
+              >
+                {item.SubHeader}
+              </Typography>
 
               <Button
-                variant="contained"
-                color="primary"
+                variant='contained'
+                color='primary'
                 sx={{
-                  textTransform: "none",
+                  textTransform: 'none',
                   borderRadius: 2,
                   px: 3,
                   py: 1,
-                  backgroundColor: "#2E7D32", // Matching green background
-                  "&:hover": {
-                    backgroundColor: "#1b5e20", // Darker shade of green on hover
+
+                  backgroundColor: '#2E7D32', // Matching green background
+                  '&:hover': {
+                    backgroundColor: '#1b5e20' // Darker shade of green on hover
                   },
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  transform: "perspective(600px) rotateY(0deg)", // Initial state
-                  transition: "transform 0.3s",
-                  "&:hover": {
-                    transform: "perspective(600px) rotateY(180deg)", // Flip on hover
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  transform: 'perspective(600px) rotateY(0deg)', // Initial state
+                  transition: 'transform 0.3s',
+                  '&:hover': {
+                    transform: 'perspective(600px) rotateY(180deg)' // Flip on hover
                   },
-                  width: "100%", // Ensures the button takes up the full width on smaller screens
+                  width: '100%' // Ensures the button takes up the full width on smaller screens
                 }}
               >
-                <Typography variant="body2" sx={{ flexGrow: 1 }}>
+                <Typography
+                  variant='body2'
+                  sx={{ flexGrow: 1, fontSize: '0.75rem' }}
+                >
                   {item.MainHeader}
                 </Typography>
                 <ArrowForwardIcon sx={{ ml: 1 }} /> {/* Right arrow icon */}
               </Button>
-            </Card>
+            </Paper>
           </Grid>
         ))}
       </Grid>
     </Box>
-  );
-};
+  )
+}

@@ -1,0 +1,25 @@
+.RegisterPage {
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        /* Black overlay with 50% opacity */ rgba(6, 6, 6, 0.5)
+      ),
+      url(../../../assets/slide4.jpg);
+    height: 100vh;
+    background-position: 100%;
+    background-size: cover;
+  }
+  
+    
+    button {
+      border-radius: 24px;
+      padding: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: none;
+      transition: all 0.3s ease;
+    }
+    
+    button:hover {
+      transform: translateY(-3px); /* Lift effect on hover */
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
+    }

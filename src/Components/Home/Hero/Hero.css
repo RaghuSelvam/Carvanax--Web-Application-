@@ -1,10 +1,13 @@
-.Herobanner{
-    background: linear-gradient(
-        rgba(113, 112, 112, 0.5), /* Black overlay with 50% opacity */
-        rgba(6, 6, 6, 0.5)
-    ),
-    url("https://autodealreactjs.vercel.app/assets/images/slider/slide2.jpg");    height: 100vh;
-    background-position: 100%; 
-    background-size: cover;
-    
+
+
+.carousel-nav-buttons {
+  background-color: rgba(63, 206, 6, 0.5);
+  transition: all 0.3s ease; /* Smooth transition */
 }
+
+.carousel-nav-buttons:hover {
+  background-color: rgba(186, 12, 12, 0.8); /* Lighter background */
+  color: black; /* Change arrow color */
+  transform: scale(1.1); /* Slightly enlarge the button */
+}
+
