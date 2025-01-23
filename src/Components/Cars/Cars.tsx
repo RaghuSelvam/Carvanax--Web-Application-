@@ -8,6 +8,7 @@ import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Chip from "@mui/material/Chip";
 import HomeIcon from "@mui/icons-material/Home";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { RentCarsVersionTwo } from "../RentCars/RentcarsVersion2";
 export const Cars = () => {
   const Location = useLocation();
   console.log(Location.pathname);
@@ -65,9 +66,9 @@ export const Cars = () => {
         </Typography>
       </Box>
 
-      <Box display="flex" >
+      <Box display="flex" mt={5}>
         <FilterSection />
-        <RentCars />
+        <RentCarsVersionTwo />
       </Box>
     </Box>
   );
