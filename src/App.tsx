@@ -14,7 +14,9 @@ import { Ads } from './Components/Home/Ads/Ad_1'
 import { Ad_2 } from './Components/Home/Ads/Ad_2'
 import LogoSlider from './Components/Home/BrandSlider/BrandSlider'
 import { Aboutus } from './Components/AboutUs/Aboutus'
-import { DashBoard } from './Components/Dashboard/DashBoardLayOut'
+import FormWithoutYup, {
+  DashBoard
+} from './Components/Dashboard/Form/FormwithoutYUP.js'
 import { Contact } from './Components/Contact/Contact'
 import { Login } from './Components/Auth/Login/Login'
 import { Register } from './Components/Auth/Register/Register'
@@ -26,7 +28,16 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { PartnersAd } from './Components/Home/Ads/PartnersAd'
 import { WhyUs } from './Components/Home/WhyUS/WhyUs'
+import FormWithYup from './Components/Dashboard/Form/FormwithYUP.js'
+import FetchDataComponent from './Components/Dashboard/Apicalling'
+import { ListSection } from './Components/Dashboard/List'
+import Todolist from './Components/Dashboard/TodoList/Todolist.js'
+import Form from './Components/Dashboard/TodoList/Todolist.jsx'
+import SearchList from './Components/Dashboard/SearchList/SearchList.jsx'
 
+import FormTodo from './Components/Dashboard/TodoList/Todolist.jsx'
+import LikeApp from './Components/Dashboard/Context/LikeApp.js'
+import UseRefTest from './Components/Dashboard/useReff/useReff.js'
 function App () {
   return (
     <Router>
@@ -38,15 +49,12 @@ function App () {
 function MainContent () {
   const location = useLocation()
 
-  // Define routes where the NavbarSection should not appear
-  const noNavbarRoutes = ['/', '/register', ]
+  const noNavbarRoutes = ['/', '/register']
 
-  // Log the current pathname for debugging
   console.log('Current Pathname:', location.pathname)
 
   return (
     <>
-      {/* Conditionally render NavbarSection */}
       {!noNavbarRoutes.includes(location.pathname) && <NavbarSection />}
 
       <Routes>
@@ -59,7 +67,7 @@ function MainContent () {
               <WhyUs />
               <RentCars />
               <PartnersAd />
-              <Ads />
+              {/* <Ads /> */}
               <Ad_2 />
               <LogoSlider />
             </>
@@ -67,7 +75,7 @@ function MainContent () {
         />
         <Route path='/cars' element={<Cars />} />
         <Route path='/about' element={<CarDetails />} />
-        <Route path='/dashboard' element={<DashBoard />} />
+        <Route path='/dashboard' element={<></>} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/register' element={<Register />} />
       </Routes>

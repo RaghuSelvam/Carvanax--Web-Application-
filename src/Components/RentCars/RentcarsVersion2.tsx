@@ -14,7 +14,7 @@ import {
 import SpeedIcon from '@mui/icons-material/Speed'
 import InsightsIcon from '@mui/icons-material/Insights'
 import PetrolIcon from '../../assets/gas-station-petrol-svgrepo-com.svg'
-import ChatIcon from '@mui/icons-material/Chat' // Importing the chat icon
+import ChatIcon from '@mui/icons-material/Chat' 
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
@@ -28,7 +28,7 @@ export const RentCarsVersionTwo = () => {
         setCars(response.data)
       })
       .catch(error => {
-        console.error('Error fetching car data:', error) // Handle any errors
+        console.error('Error fetching car data:', error) 
       })
   })
 
@@ -40,14 +40,14 @@ export const RentCarsVersionTwo = () => {
             sx={{
               display: 'flex',
               justifyContent: 'space-between',
-              gap: 3, // Increased gap for better spacing
+              gap: 3,
               borderRadius: '23px',
               overflow: 'hidden',
-              border: '1px solid #ddd', // Lighter border for a softer appearance
-              boxShadow: '0 4px 12px rgba(133, 131, 131, 0.22)', // Added shadow for depth
+              border: '1px solid #ddd', 
+              boxShadow: '0 4px 12px rgba(133, 131, 131, 0.22)',
               height: '6.5cm',
-              margin: 3, // Padding added for everything except the image
-              position: 'relative' // Ensures absolute positioning works inside this container
+              margin: 3, 
+              position: 'relative' 
             }}
           >
             {/* Car Image Section */}
@@ -60,40 +60,39 @@ export const RentCarsVersionTwo = () => {
                   borderRadius: '8px',
                   border: '1px solid #ddd',
                   objectFit: 'cover'
-                }} // Ensure image covers container and no extra space
+                }} 
               />
               <Chip
                 label='New'
                 color='primary'
                 sx={{
                   position: 'absolute',
-                  top: 8, // Positioning from the top
-                  left: 8, // Positioning from the left
-                  backgroundColor: '#2E7D32', // Custom green color
+                  top: 8, 
+                  backgroundColor: '#2E7D32', 
                   color: 'white',
                   fontWeight: '400',
                   height: '23px',
                   fontSize: '12px',
                   width: '53px',
-                  boxShadow: '0px 2px 8px rgba(0, 0, 0, 0.15)' // Shadow for the chip
+                  boxShadow: '0px 2px 8px rgba(0, 0, 0, 0.15)' 
                 }}
               />{' '}
               <Chip
                 label='4'
-                color='default' // Use default to apply custom background color
-                icon={<SpeedIcon sx={{ fontSize: 16, color: '#6E6E6E' }} />} // Add icon (SpeedIcon used here as an example)
+                color='default' 
+                icon={<SpeedIcon sx={{ fontSize: 16, color: '#6E6E6E' }} />} 
                 sx={{
                   position: 'absolute',
-                  top: 8, // Positioning from the top
-                  left: 68, // Positioning from the right
-                  backgroundColor: 'lightgrey', // Grey color for background
-                  color: '#6E6E6E', // Grey color for the text
+                  top: 8, 
+                  left: 68, 
+                  backgroundColor: 'lightgrey', 
+                  color: '#6E6E6E',
                   fontWeight: '500',
                   height: '23px',
                   fontSize: '10px',
-                  width: '38px', // Adjusted width to accommodate the label and icon
+                  width: '38px', 
                   display: 'flex',
-                  alignItems: 'center' // Ensure proper alignment of text and icon
+                  alignItems: 'center'
                 }}
               />
               <Chip
@@ -101,20 +100,19 @@ export const RentCarsVersionTwo = () => {
                 color='secondary'
                 sx={{
                   position: 'absolute',
-                  top: 8, // Positioning from the top
-                  right: 8, // Positioning from the right
-                  backgroundColor: '#2E7D32', // Custom green color
+                  top: 8, 
+                  right: 8, 
+                  backgroundColor: '#2E7D32', 
                   color: 'white',
                   fontWeight: '400',
                   height: '23px',
                   fontSize: '11px',
                   width: '51px',
-                  boxShadow: '0px 2px 8px rgba(0, 0, 0, 0.15)' // Shadow for the chip
+                  boxShadow: '0px 2px 8px rgba(0, 0, 0, 0.15)' 
                 }}
               />
             </Box>
 
-            {/* Car Details Section */}
             <Box
               sx={{
                 flex: 1,
@@ -172,7 +170,6 @@ export const RentCarsVersionTwo = () => {
                 View details
               </Button>
             </Box>
-            {/* Divider Between Sections */}
             <Divider
               orientation='vertical'
               flexItem
@@ -185,7 +182,6 @@ export const RentCarsVersionTwo = () => {
               justifyContent='center'
               sx={{ padding: 2 }}
             >
-              {/* Avatar List Section */}
               <Box display='flex' justifyContent='center' mb={2}>
                 <List
                   sx={{
@@ -224,9 +220,9 @@ export const RentCarsVersionTwo = () => {
                     backgroundColor: 'white',
                     color: '#2E7D32'
                   },
-                  boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)' // Light shadow effect for the button
+                  boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)'
                 }}
-                startIcon={<ChatIcon />} // Adding the chat icon to the left of the text
+                startIcon={<ChatIcon />} 
               >
                 Chat
               </Button>

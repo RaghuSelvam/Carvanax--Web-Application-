@@ -4,7 +4,6 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import './index.css';
 import App from './App.tsx';
 
-// Create MUI Theme
 const theme = createTheme({
   typography: {
     fontFamily: `'Lexend Deca', sans-serif`,

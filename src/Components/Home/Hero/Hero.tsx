@@ -30,26 +30,26 @@ const HeroSection = () => {
   return (
     <Box className='Herobanner'>
       <Carousel
-        indicators={false} // Disable dots
+        indicators={false} 
         navButtonsAlwaysVisible
         interval={1000}
         animation='fade'
         navButtonsProps={{
           style: {
-            backgroundColor: 'rgba(214, 208, 208, 0.5)', // Semi-transparent black
-            color: 'white', // White arrow color
-            borderRadius: '20%', // Round button
-            height: '60px', // Button height
-            width: '61px', // Button width
-            top: 'calc(50% - 20px)', // Center vertically
+            backgroundColor: 'rgba(214, 208, 208, 0.5)',
+            color: 'white', 
+            borderRadius: '20%', 
+            height: '60px', 
+            width: '61px', 
+            top: 'calc(50% - 20px)', 
             transform: 'translateY(-50%)'
           },
-          className: 'carousel-nav-buttons' // Add a custom class for hover effects
+          className: 'carousel-nav-buttons'
         }}
         navButtonsWrapperProps={{
           style: {
             top: '50%',
-            transform: 'translateY(-50%)' // Center wrapper vertically
+            transform: 'translateY(-50%)'
           }
         }}
       >

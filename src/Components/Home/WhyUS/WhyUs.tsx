@@ -6,37 +6,32 @@ import {
   ListItemText,
   ListItemIcon,
   Grid
-} from '@mui/material'
-import Car1 from '../../../assets/car1 (1).svg'
-import Car2 from '../../../assets/car-front-svgrepo-com.svg'
-import Car3 from '../../../assets/car1 (3).svg'
-import Car4 from '../../../assets/car1 (4).svg'
-import CheckCircleIcon from '@mui/icons-material/CheckCircle'
+} from '@mui/material';
+import Car1 from '../../../assets/car1 (1).svg';
+import Car2 from '../../../assets/car-front-svgrepo-com.svg';
+import Car3 from '../../../assets/car1 (3).svg';
+import Car4 from '../../../assets/car1 (4).svg';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 export const WhyUs = () => {
   return (
     <Box
       sx={{
-        padding: { xs: 5,   }, // Responsive right values for mobile and desktop
-
-        margin: '2cm auto',
-        maxWidth: '1250px', // Limit the container width
-        width: '100%' // Ensure the container takes up full width on small screens
+        padding: { xs: 3, sm: 4, md: 6 },
+        margin: { xs: '1cm auto', md: '2cm auto' },
+        maxWidth: '1250px',
+        width: '100%'
       }}
     >
-      {/* Title Section */}
-
-      {/* Grid Layout for Content */}
-      <Grid container spacing={{ xs: 4, md: 22 }} alignItems='center'>
+      <Grid container spacing={4} alignItems='center'>
         {/* Image Section */}
         <Grid item xs={12} md={6}>
           <Box
-            m={1}
             sx={{
-              position: 'relative', // Allows positioning elements within this container
-              height: { xs: '350px', md: '510px' }, // Responsive height
-              overflow: 'visible', // Ensure elements outside the container are visible
-              right: { xs: '32px', md: '0px' }
+              position: 'relative',
+              height: { xs: '300px', sm: '400px', md: '500px' },
+              overflow: 'visible',
+              right: { xs: '10px', md: '0px' }
             }}
           >
             {/* First Image */}
@@ -44,60 +39,46 @@ export const WhyUs = () => {
               src='https://autodealreactjs.vercel.app/assets/images/section/wcu-1.jpg'
               alt='Car Image'
               style={{
-                borderRadius: '1cm',
+                borderRadius: '15px',
                 position: 'absolute',
-                top: -50, // Align the first image at the top
-                left: 0, // Align to the left
-                width: '121%', // Occupy the container width
-                height: '110%', // Adjust the height
-                objectFit: 'cover', // Cover the designated area without distortion
-                zIndex: 1 // Set the stacking order
+                top: -30,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                zIndex: 1
               }}
             />
 
-            {/* Checkicon Boxes with Animation */}
+            {/* Check Icon Boxes */}
             {[
-              { text: 'Proven Expertise', top: '23%' },
-              { text: '1 Million Visits Per Day', top: '36%' },
-              { text: '7,800 Car Sellers', top: '49%' }
+              { text: 'Proven Expertise', top: '20%' },
+              { text: '1 Million Visits Per Day', top: '35%' },
+              { text: '7,800 Car Sellers', top: '50%' }
             ].map((item, index) => (
               <Box
                 key={index}
                 sx={{
                   position: 'absolute',
-                  top: item.top, // Dynamically position each box
-                  right: '-21%', // Align all boxes to the right
+                  top: item.top,
+                  right: { xs: '-5%', sm: '-10%', md: '-15%' },
                   bgcolor: 'white',
-                  borderRadius: '30px',
-                  padding: '12px 18px',
-                  boxShadow: '10px 34px 28px rgba(0, 0, 0, 0.2)',
-                  zIndex: 2, // Ensure boxes appear above the image
+                  borderRadius: '20px',
+                  padding: '10px 16px',
+                  boxShadow: '0 10px 20px rgba(0, 0, 0, 0.1)',
+                  zIndex: 2,
                   display: 'flex',
-                  flexDirection: index === 1 ? 'row-reverse' : 'row', // Reverse for the second box
-                  alignItems: 'center', // Center align icon and text
-                  animation: `moveBox 2s ease-in-out ${
-                    index * 0.5
-                  }s infinite alternate`, // Add animation
+                  flexDirection: index === 1 ? 'row-reverse' : 'row',
+                  alignItems: 'center',
+                  animation: `moveBox 2s ease-in-out ${index * 0.5}s infinite alternate`,
                   '@keyframes moveBox': {
-                    '0%': {
-                      transform: 'translateX(0)'
-                    },
-                    '100%': {
-                      transform: 'translateX(-20px)' // Move 20px to the left
-                    }
+                    '0%': { transform: 'translateX(0)' },
+                    '100%': { transform: 'translateX(-15px)' }
                   }
                 }}
               >
-                <Typography
-                  variant='subtitle1'
-                  sx={{
-                    marginLeft: index === 1 ? 0 : 2, // Add margin for left-to-right flow
-                    marginRight: index === 1 ? 2 : 0 // Add margin for right-to-left flow
-                  }}
-                >
-                  <CheckCircleIcon sx={{ color: '#2E7D32' }} />
-                  {item.text}
-                </Typography>
+                <CheckCircleIcon sx={{ color: '#2E7D32', marginRight: 1 }} />
+                <Typography variant='subtitle1'>{item.text}</Typography>
               </Box>
             ))}
 
@@ -107,54 +88,44 @@ export const WhyUs = () => {
               alt='Overlay Image'
               style={{
                 position: 'absolute',
-                top: '52%', // Position the second image to overlap the first
-                left: '10%', // Shift slightly to the right
-
-                width: '145%', // Expand for effect
-                height: '80%', // Adjust the height
-                objectFit: 'contain', // Contain the image within its area
-                zIndex: 1 // Place behind the first image and boxes
+                top: '55%',
+                left: '10%',
+                width: '100%',
+                height: '60%',
+                objectFit: 'contain',
+                zIndex: 1
               }}
             />
           </Box>
         </Grid>
 
         {/* List Section */}
-        <Grid
-          item
-          xs={12}
-          md={6}
-          sx={{
-            marginTop: { xs: 10, } // Responsive right values for mobile and desktop
-          }}
-        >
+        <Grid item xs={12} md={6}>
           <Typography
             variant='h5'
             sx={{
               textAlign: 'start',
-              marginBottom: 3,
-
+              marginBottom: 2,
               fontWeight: '500',
               color: '#2E7D32',
-              fontSize: { xs: 22, md: 27 } // Adjust font size on small screens
+              fontSize: { xs: 20, md: 26 }
             }}
           >
             Why Choose Auto Decar
           </Typography>
 
           <Typography
-            variant='h5'
+            variant='body1'
             sx={{
               textAlign: 'start',
               marginBottom: 2,
               fontWeight: '400',
               color: '#333',
-              fontSize: { xs: 12, md: 13 } // Adjust font size on small screens
+              fontSize: { xs: 14, md: 16 }
             }}
           >
-            Our experienced team excels in car sales with many years of
-            successfully navigating the market, delivering informed decisions
-            and optimal results.
+            Our experienced team excels in car sales with years of expertise, 
+            ensuring informed decisions and optimal results.
           </Typography>
 
           <List>
@@ -162,26 +133,22 @@ export const WhyUs = () => {
               {
                 icon: Car1,
                 primary: 'New Range Rover, Defender, Discovery',
-                secondary:
-                  'Experience the joy of owning a brand new Range Rover, Defender, or Discovery today!'
+                secondary: 'Own a brand new Range Rover, Defender, or Discovery today!'
               },
               {
                 icon: Car2,
                 primary: 'Pre-Owned Vehicles',
-                secondary:
-                  'AutoDecar has a great selection of pre-owned vehicles.'
+                secondary: 'AutoDecar offers a great selection of pre-owned vehicles.'
               },
               {
                 icon: Car3,
                 primary: 'Certified Pre-Owned Vehicles',
-                secondary:
-                  'AutoDecar Demo has a great selection of certified pre-owned vehicles.'
+                secondary: 'Browse our certified pre-owned vehicle selection.'
               },
               {
                 icon: Car4,
                 primary: 'Financing',
-                secondary:
-                  'Get approved today and drive off in a new or used vehicle.'
+                secondary: 'Get approved today and drive off in your dream car.'
               }
             ].map((item, index) => (
               <ListItem
@@ -189,50 +156,41 @@ export const WhyUs = () => {
                 sx={{
                   border: '1px solid rgba(199, 199, 199, 0.97)',
                   borderRadius: 4,
-                  padding: 3,
+                  padding: 2,
                   marginBottom: 2,
                   transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                   '&:hover': {
-                    transform: index === 2 ? 'scale(1.1)' : 'scale(1.05)', // Only scale the third item
-                    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)' // Add box shadow
+                    transform: 'scale(1.05)',
+                    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)'
                   },
                   ...(item.primary === 'Pre-Owned Vehicles' && {
-                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                     bgcolor: '#2E7D32',
                     color: 'white',
-                    transform: 'scale(1.12)',
-                    boxShadow: '0 21px 30px rgba(0, 0, 0, 0.2)'
+                    transform: 'scale(1.08)',
+                    boxShadow: '0 15px 25px rgba(0, 0, 0, 0.2)'
                   })
                 }}
               >
                 <ListItemIcon
                   sx={{
-                    transition: 'transform 0.3s ease', // Smooth transition for the flip
-                    '&:hover': {
-                      transform: 'scaleX(-1)' // Flip the icon horizontally on hover
-                    }
+                    transition: 'transform 0.3s ease',
+                    '&:hover': { transform: 'scaleX(-1)' }
                   }}
                 >
-                  <img src={item.icon} alt='' width={50} />
+                  <img src={item.icon} alt='' width={40} />
                 </ListItemIcon>
                 <ListItemText
                   primary={item.primary}
                   secondary={item.secondary}
                   primaryTypographyProps={{
-                    fontSize: '0.975rem',
+                    fontSize: '1rem',
                     fontWeight: 500,
-                    color:
-                      item.primary === 'Pre-Owned Vehicles'
-                        ? 'white'
-                        : '#2E7D32' // Ensure white color for primary text
+                    color: item.primary === 'Pre-Owned Vehicles' ? 'white' : '#2E7D32'
                   }}
                   secondaryTypographyProps={{
-                    fontSize: '0.76rem',
+                    fontSize: '0.85rem',
                     fontWeight: 400,
-                    color:
-                      item.primary === 'Pre-Owned Vehicles'
-                        ? 'white'
-                        : 'inherit' // Ensure white color for primary text
+                    color: item.primary === 'Pre-Owned Vehicles' ? 'white' : 'inherit'
                   }}
                 />
               </ListItem>
@@ -241,5 +199,5 @@ export const WhyUs = () => {
         </Grid>
       </Grid>
     </Box>
-  )
-}
+  );
+};

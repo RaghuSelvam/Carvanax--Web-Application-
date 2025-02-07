@@ -10,8 +10,6 @@ import {
 } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import GoogleIcon from "@mui/icons-material/Google";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { auth } from "../FireBase/FireBaseApp"; // Import only auth
@@ -22,9 +20,8 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth"; // Updated imports
 import { useNavigate } from "react-router-dom"; // Import useNavigate
-import "./Login.css";
-import { Height } from "@mui/icons-material";
 import { onAuthStateChanged } from "firebase/auth"; // Import for checking auth state
+import "./Login.css";
 
 // Validation schema for the login form
 const validationSchema = Yup.object({
@@ -55,13 +52,14 @@ export const Login = () => {
         values.password
       );
       console.log("Logged in with email and password:", userCredential.user);
-      // Redirect to // after successful login
+      // Redirect to /home after successful login
       navigate("/home");
     } catch (error) {
       console.error("Error with email/password login: ", error.message);
       // Optionally, show an error message to the user
     }
   };
+
   // Google Login Function
   const handleGoogleLogin = async () => {
     const provider = new GoogleAuthProvider();
@@ -69,25 +67,14 @@ export const Login = () => {
       const result = await signInWithPopup(auth, provider);
       if (result.user) {
         console.log("Google login successful: ", result.user);
-        // Redirect to // after successful login
+        // Redirect to /home after successful login
         navigate("/home");
       } else {
-        // Handle case when the user is null (shouldn't really happen in this case, but we are being cautious)
         alert("Authentication failed. Please try again.");
       }
     } catch (error) {
       console.error("Error with Google login: ", error.message);
-      // Handle specific error cases
-      if (error.code === "auth/popup-closed-by-user") {
-        alert("Login popup closed before completing. Please try again.");
-      } else if (error.code === "auth/cancelled-popup-request") {
-        alert("Popup request was cancelled. Please try again.");
-      } else {
-        // General authentication error
-        alert(
-          "Google login failed. Please check your credentials and try again."
-        );
-      }
+      alert("Google login failed. Please try again.");
     }
   };
 
@@ -98,15 +85,22 @@ export const Login = () => {
       const result = await signInWithPopup(auth, provider);
       if (result.user) {
         console.log("Facebook login successful: ", result.user);
-        // Redirect to // after successful login
+        // Redirect to /home after successful login
         navigate("/home");
       }
     } catch (error) {
       console.error("Error with Facebook login: ", error.message);
-      // Handle authentication error (e.g., show an error message to the user)
       alert("Facebook login failed. Please try again.");
     }
   };
+
+  // Handle Guest Login Function
+  const handleGuestLogin = () => {
+    console.log("Logging in as guest");
+    // Redirect to /home as a guest
+    navigate("/home");
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -115,10 +109,8 @@ export const Login = () => {
       }
     });
 
-    // Cleanup the subscription when the component is unmounted
     return () => unsubscribe();
   }, [navigate]);
-
 
   return (
     <Box
@@ -205,15 +197,12 @@ export const Login = () => {
                 error={touched.email && Boolean(errors.email)}
                 sx={{
                   mb: 2,
-                  "& .MuiInputBase-root": {
-                    height: "45px", // Set the desired height for the input box here
-                  },
+                  "& .MuiInputBase-root": { height: "45px" },
                   "& .MuiOutlinedInput-input": {
-                    padding: "18.5px 14px", // Adjust padding to center text vertically
+                    padding: "18.5px 14px",
                   },
-                }} InputLabelProps={{
-                  style: { fontSize: "12px" }, // Smaller label font size
                 }}
+                InputLabelProps={{ style: { fontSize: "12px" } }}
               />
               <Field
                 fullWidth
@@ -228,16 +217,12 @@ export const Login = () => {
                 error={touched.password && Boolean(errors.password)}
                 sx={{
                   mb: 2,
-                  "& .MuiInputBase-root": {
-                    height: "45px", // Set the desired height for the input box here
-                  },
+                  "& .MuiInputBase-root": { height: "45px" },
                   "& .MuiOutlinedInput-input": {
-                    padding: "18.5px 14px", // Adjust padding to center text vertically
+                    padding: "18.5px 14px",
                   },
-                }} 
-                InputLabelProps={{
-                  style: { fontSize: "12px" }, // Smaller label font size
                 }}
+                InputLabelProps={{ style: { fontSize: "12px" } }}
               />
               <Button
                 fullWidth
@@ -261,6 +246,21 @@ export const Login = () => {
             Sign up
           </Link>
         </Typography>
+
+        {/* Login as Guest Button */}
+        <Button
+          fullWidth
+          variant="outlined"
+          sx={{
+            mt: 3,
+            borderRadius: "24px",
+            fontWeight: 300,
+            textTransform: "none",
+          }}
+          onClick={handleGuestLogin}
+        >
+          Login as Guest
+        </Button>
       </Box>
     </Box>
   );

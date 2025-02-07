@@ -98,11 +98,11 @@ export const NavbarSection = () => {
         backgroundColor: isScrolled ? 'white' : 'transparent',
         borderRadius: isScrolled ? '10px' : '0',
         boxShadow: '0px 0px 30px rgba(0, 0, 0, 0.5)',
-        width: isScrolled ? '76%' : '100%', // Adjusts width based on scroll state
+        width: isScrolled ? '76%' : '100%',
         transition:
-          'background-color 0.3s ease, box-shadow 0.3s ease, width 0.3s ease, transform 0.3s ease', // Added transform transition
+          'background-color 0.3s ease, box-shadow 0.3s ease, width 0.3s ease, transform 0.3s ease',
         margin: '0 auto', // Centers the AppBar horizontally
-        transform: isScrolled ? 'translateY(20px)' : 'translateY(0)' // Adds a gap effect
+        transform: isScrolled ? 'translateY(20px)' : 'translateY(0)'
       }}
     >
       <Container maxWidth='xl'>

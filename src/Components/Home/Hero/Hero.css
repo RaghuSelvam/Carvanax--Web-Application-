@@ -2,12 +2,12 @@
 
 .carousel-nav-buttons {
   background-color: rgba(63, 206, 6, 0.5);
-  transition: all 0.3s ease; /* Smooth transition */
+  transition: all 0.3s ease; 
 }
 
 .carousel-nav-buttons:hover {
-  background-color: rgba(186, 12, 12, 0.8); /* Lighter background */
-  color: black; /* Change arrow color */
-  transform: scale(1.1); /* Slightly enlarge the button */
+  background-color: rgba(186, 12, 12, 0.8); 
+  color: black; 
+  transform: scale(1.1);
 }
 

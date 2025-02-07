@@ -38,19 +38,18 @@ export const RentCars = () => {
   const theme = useTheme();
   const Location = useLocation();
   console.log(Location.pathname);
-  // Fetch car data from the API using Axios
   useEffect(() => {
     axios
       .get("https://674dbb7a635bad45618c929e.mockapi.io/carvanax/Cars")
       .then((response) => {
-        setCars(response.data); // Set the data in state
+        setCars(response.data); 
       })
       .catch((error) => {
-        console.error("Error fetching car data:", error); // Handle any errors
+        console.error("Error fetching car data:", error);
       });
-  }, []); // Empty dependency array means it will only run once when the component mounts
+  }, []);
 
-  // Slice the cars array to show only the first 9 cars when showAll is false
+ 
   const displayedCars = showAll ? cars : cars.slice(0, 9);
   const filteredCars = cars.slice(0, parseInt(showFilter));
   const sortedCars =
@@ -238,33 +237,31 @@ export const RentCars = () => {
       </Box>
       <Grid container spacing={3}>
         {" "}
-        {/* Adjusted spacing for more consistent gap between cards */}
         {displayedCars.map((car) => (
           <Grid item xs={12} sm={6} md={3} key={car.id}>
             {" "}
-            {/* Adjusted width to fit 3 cards in a row */}
             <Card
               sx={{
-                borderRadius: 4, // Rounded corners for cards
-                boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)", // Subtle shadow effect
+                borderRadius: 4, 
+                boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)", 
                 overflow: "hidden",
                 position: "relative",
                 transition: "transform 0.3s ease",
-                height: "12cm", // Ensure dynamic height
-                width: "100%", // Ensure the card takes full width of grid item
+                height: "12cm", 
+                width: "100%", 
                 "&:hover": {
-                  transform: "scale(1.05)", // Slight zoom on hover
+                  transform: "scale(1.05)", 
                 },
               }}
             >
               <Box sx={{ position: "relative" }}>
                 <CardMedia
                   component="img"
-                  height="150" // Adjusted image height for consistency
+                  height="150" 
                   image={car.carImage}
                   alt="Sedan Car"
                   sx={{
-                    objectFit: "cover", // Ensures image is properly contained
+                    objectFit: "cover",
                   }}
                 />
 
@@ -284,7 +281,7 @@ export const RentCars = () => {
                     opacity: 0,
                     transition: "opacity 0.3s ease",
                     "&:hover": {
-                      opacity: 1, // Show overlay on hover
+                      opacity: 1, 
                     },
                   }}
                 >
@@ -293,7 +290,7 @@ export const RentCars = () => {
                     icon={<FavoriteBorder />}
                     checkedIcon={<Favorite sx={{ color: "red" }} />}
                     sx={{
-                      color: "white", // Color for the checkbox icon
+                      color: "white", 
                     }}
                   />
                 </Box>
